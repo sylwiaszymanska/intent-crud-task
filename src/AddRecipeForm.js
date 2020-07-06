@@ -9,11 +9,12 @@ const FormWrapper = styled.div`
 `
 
 const AddRecipeForm = () => {
+    const handleRecipeAddition = () => {}
 
     return <Backdrop>
         <FormWrapper>
             <h1>Add a recipe</h1>
-            <RecipeForm submitButton={"Add"} />
+            <RecipeForm submitButton={"Add"} onSubmit={handleRecipeAddition} />
         </FormWrapper>
 
     </Backdrop>
