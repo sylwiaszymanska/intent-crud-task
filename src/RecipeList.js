@@ -1,9 +1,11 @@
 import React from 'react';
 import Recipe from "./Recipe";
-import styled from "styled-components"
+import { useRecipesContext } from "./recipes.context";
 
-const RecipeList = ({ recipes }) => {
-    return recipes.map(element => <Recipe recipe={element} />)
+const RecipeList = () => {
+    const { recipes } = useRecipesContext();
+
+    return recipes.map(element => <Recipe key={element.name} recipe={element} />)
 }
 
 export default RecipeList

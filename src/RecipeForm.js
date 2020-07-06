@@ -1,52 +1,62 @@
 import React, { useState } from 'react';
-import styled, { css } from "styled-components"
-
+import styled from "styled-components"
+import {ButtonClose, ButtonSubmit} from "./components/common/Buttons";
 
 const Form = styled.form`
     display: flex;
     flex-direction: column;
-    color: black;
     width: 500px;
     padding: 20px 50px 50px;
     align-items: flex-start;
+    
+    label {
+      font-size: 20px;
+      font-family: 'Fredericka the Great', cursive;
+      margin-bottom: 15px;
+    }
+    input {
+      width: 100%;
+      font-size: 20px;
+      color: ${({ theme }) => theme.color.cafeNoir};
+      font-family: 'Amatic SC', cursive;
+      padding: 5px 10px;
+      margin-bottom: 15px;
+      border: none;
+    }
 `
-const ButtonStyles = css`
-    text-transform: uppercase;
-    width: 100px;
-    border: none;
-    padding: 10px 30px;
-    margin: 15px;
-`
-const ButtonSubmit = styled.button`
-    ${ButtonStyles};
-    background-color: ${({ theme }) => theme.color.chocolat};
-`
-const ButtonClose = styled.button`
-    ${ButtonStyles};
-    background-color: ${({ theme }) => theme.color.blush};
-`
-
-const RecipeForm = ({ recipe, submitButton, onClose }) => {
-    const [name, setName] = useState()
-    const [ingredients, setIngredients] = useState("")
+const RecipeForm = ({ recipe, submitButton, onClose, onSubmit }) => {
+    const [name, setName] = useState(recipe ? recipe.name : "");
+    const [ingredients, setIngredients] = useState(recipe ? recipe.ingredients.join(",") :  "");
 
     const handleNameChange = (e) => {
-        setName(e.target.value)
+        setName(e.target.value);
     }
-
     const handleIngredientsChange = (e) => {
-        setIngredients(e.target.value)
+        setIngredients(e.target.value);
     }
-
-    const handleFormClose = () => {}
+    const handleFormClose = () => {
+        onClose();
+    }
+    const handleFormSubmit = () => {
+        onSubmit({ name, ingredients, id: recipe?.id });
+    }
 
     return <Form>
-        <label for={"name"}>Recipe name</label>
-        <input id={"name"} name={"name"} value={name} onChange={handleNameChange} />
-        <label for={"ingredients"}>Ingredients</label>
-        <input id={"ingredients"} name={"ingredients"} value={ingredients} onChange={handleIngredientsChange} />
-        <ButtonSubmit>{submitButton}</ButtonSubmit>
-        <ButtonClose onClick={handleFormClose}>Close</ButtonClose>
+        <label htmlFor={"name"}>Recipe name</label>
+        <input id={"name"}
+            name={"name"}
+            value={name}
+            placeholder={"Recipe Name"}
+            onChange={handleNameChange} />
+        <label htmlFor={"ingredients"}>Ingredients</label>
+        <input
+            id={"ingredients"}
+            name={"ingredients"}
+            value={ingredients}
+            placeholder={"Enter Ingredients,Separated By,Commas"}
+            onChange={handleIngredientsChange} />
+        <ButtonSubmit type={"button"} onClick={handleFormSubmit}>{submitButton}</ButtonSubmit>
+        <ButtonClose type={"button"} onClick={handleFormClose}>Close</ButtonClose>
     </Form>
 }
 
