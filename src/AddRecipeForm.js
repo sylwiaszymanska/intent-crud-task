@@ -1,23 +1,22 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import styled from "styled-components"
+import RecipeForm from "./RecipeForm";
+import Backdrop from "./components/common/Backdrop"
 
 
-const AddRecipeForm = ({ list }) => {
-    const [name, setName] = useState()
-    const [ingredients, setIngredients] = useState("")
+const FormWrapper = styled.div`
+    background-color: white;
+`
 
-    const handleNameChange = (e) => {
-        setName(e.target.value)
-    }
+const AddRecipeForm = () => {
 
-    const handleIngredientsChange = (e) => {
-        setIngredients(e.target.value)
-    }
+    return <Backdrop>
+        <FormWrapper>
+            <h1>Add a recipe</h1>
+            <RecipeForm submitButton={"Add"} />
+        </FormWrapper>
 
-    return <form>
-        <input name={"name"} value={name} onChange={handleNameChange} />
-        <input name={"ingredients"} value={ingredients} onChange={handleIngredientsChange} />
-
-    </form>
+    </Backdrop>
 }
 
 export default AddRecipeForm
