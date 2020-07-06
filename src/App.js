@@ -1,26 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import RecipeList from "./RecipeList";
+
+const recipes = [{ id: 1, name: "spaghetti", ingredients: ["onion", "tomato", "potato"]}, { id: 2, name: "soup", ingredients: ["basil", "tomato"]} ]
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    
+    const handleAddRecipe = () => {};
+
+    return (
+        <div className="App">
+            <RecipeList list={recipes}/>
+            <button onClick={handleAddRecipe}>Add recipe</button>
+        </div>
+    );
 }
 
 export default App;
