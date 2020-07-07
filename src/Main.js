@@ -1,9 +1,9 @@
-import RecipeList from "./RecipeList";
-import Modal from "./Modal";
+import RecipeList from "./components/recipes/RecipeList";
+import Modal from "./components/recipes/Modal";
 import React from "react";
 import styled from "styled-components";
-import {ButtonStyles} from "./components/common/Buttons";
-import {useRecipesContext} from "./recipes.context";
+import { ButtonStyles } from "./components/common/Buttons";
+import { useRecipesContext } from "./contexts/recipes.context";
 
 const Title = styled.h1`
     text-align: center;
@@ -11,7 +11,8 @@ const Title = styled.h1`
 
 const AddRecipeButton = styled.button`
   ${ButtonStyles};
-  background-color: ${({ theme }) => theme.color.blush};
+  background-color: ${({ theme }) => theme.color.cafeNoir};
+  color: white;
   margin-top: 40px;
 `
 

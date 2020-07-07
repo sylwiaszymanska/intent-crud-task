@@ -1,7 +1,7 @@
 import React from 'react';
-import { useRecipesContext } from "./recipes.context";
-import AddRecipeForm from "./AddRecipeForm";
-import Backdrop from "./components/common/Backdrop";
+import { useRecipesContext } from "../../contexts/recipes.context";
+import AddRecipeForm from "./forms/AddRecipeForm";
+import Backdrop from "../common/Backdrop";
 
 const Modal = () => {
     const { isModalVisible } = useRecipesContext();

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from "styled-components"
-import {ButtonClose, ButtonSubmit} from "./components/common/Buttons";
+import {ButtonClose, ButtonSubmit} from "../../common/Buttons";
 
 const Form = styled.form`
     display: flex;

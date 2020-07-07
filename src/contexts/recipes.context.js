@@ -15,7 +15,7 @@ const useStateWithLocalStorage = (
 ) => {
     const key = `crud-` + localStorageKey
     const [value, setValue] = useState(
-        () => (isLocalStorageAvailable() && JSON.parse(localStorage.getItem(key))) || []
+        () => (isLocalStorageAvailable() && JSON.parse(localStorage.getItem(key))) || mockedData
     )
 
     const storeValue = (newValue) => {

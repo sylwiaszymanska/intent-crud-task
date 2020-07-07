@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styled from "styled-components"
-import { ButtonEdit, ButtonDelete } from "./components/common/Buttons"
-import EditRecipeForm from "./EditRecipeForm";
-import {useRecipesContext} from "./recipes.context";
+import { ButtonEdit, ButtonDelete } from "../common/Buttons"
+import EditRecipeForm from "./forms/EditRecipeForm";
+import { useRecipesContext } from "../../contexts/recipes.context";
 
 const Accordion = styled.div`
     font-size: 24px;
@@ -14,23 +14,21 @@ const Accordion = styled.div`
     }
 `
 
-const Ingredients = styled.ul`
+const Ingredients = styled.ul``
 
-`
 const Recipe = ({ recipe }) => {
     const [expanded, setExpanded] = useState(false);
     const [isEditModalVisible, setEditModalVisible] = useState(false);
     const { recipes, setRecipes } = useRecipesContext();
 
-
     const toggleExpanded = () => {
         setExpanded(!expanded)
         setEditModalVisible(false)
     }
-    const handleEditClick = (e) => {
+    const handleEditClick = () => {
         setEditModalVisible(true);
     }
-    const handleEditClose = (e) => {
+    const handleEditClose = () => {
         setEditModalVisible(false);
     }
     const handleDelete = () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { ThemeProvider }   from "styled-components";
 import theme from "./theme"
-import { RecipesProvider } from "./recipes.context";
+import { RecipesProvider } from "./contexts/recipes.context";
 import Main from "./Main";
 
 const AppWrapper = styled.div`

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components"
 import RecipeForm from "./RecipeForm";
-import {useRecipesContext} from "./recipes.context";
+import { useRecipesContext } from "../../../contexts/recipes.context";
 
 const FormWrapper = styled.div`
     background-color: white;
